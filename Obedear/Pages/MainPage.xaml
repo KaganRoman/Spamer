@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Obedear.MainPage">
+
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="buttonStyle" TargetType="Button">
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+
+	<StackLayout Orientation="Vertical" Padding="5,70,5,5">
+		<Grid Padding="0,10,0,30">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+
+			<DatePicker HorizontalOptions="CenterAndExpand" Format="D" Date="{Binding SelectedDate}"/>
+	<!--		<TimePicker Time="{Binding SelectedTime}" Grid.Column="1" /> -->
+			<Picker x:Name="timePicker" SelectedIndex="{Binding SelectedTimeIndex}" Title="16:30" Grid.Column="1" />
+		</Grid>
+		<Grid Padding="0,10,0,30">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+
+			<Entry Text="{Binding Name}"/>
+			<Entry Text="{Binding Phone}" Grid.Column="1"/>
+		</Grid>
+		<Grid Padding="0,10,0,30">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+
+			<Switch HorizontalOptions="Center" IsToggled="{Binding IsFemale}" Toggled="switchToggled"/>
+			<Label Text="{Binding Sex}" HorizontalOptions="Start" Grid.Column="1"/>
+		</Grid>
+		<Grid Padding="0,40,0,0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+
+			<Button Text="Germany" FontSize="24" Style="{StaticResource buttonStyle}" Command="{Binding Send}" CommandParameter="Germany"/>
+			<Button Text="Premed" FontSize="24" Style="{StaticResource buttonStyle}" Command="{Binding Send}" CommandParameter="Premed" Grid.Column="1" />
+		</Grid>
+	</StackLayout>
+
+	</ContentPage.Content>
+</ContentPage>
